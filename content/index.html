@@ -1,14 +1,26 @@
 ---
-title: Home
+title: "Home content/default.html"
+desc: "some description here"
+published: True
+type: "Quote"
 ---
 
-<h1>A Brand New nanoc Site</h1>
+<h1>loading <%= @item[:filename] %></h1>
 
-<p>You’ve just created a new nanoc site. The page you are looking at right now is the home page for your site. To get started, consider replacing this default homepage with your own customized homepage. Some pointers on how to do so:</p>
+<p>Items consist of content and metadata.</p>
 
-<ul>
-  <li><p><strong>Change this page’s content</strong> by editing the “index.html” file in the “content” directory. This is the actual page content, and therefore doesn’t include the header, sidebar or style information (those are part of the layout).</p></li>
-  <li><p><strong>Change the layout</strong>, which is the “default.html” file in the “layouts” directory, and create something unique (and hopefully less bland).</p></li>
-</ul>
+<pre>
+Hierarchy of files in content/ reflect identifier names
 
-<p>If you need any help with customizing your nanoc web site, be sure to check out the documentation (see sidebar), and be sure to subscribe to the discussion group (also see sidebar). Enjoy!</p>
+Identifier / the "root" or "home" page
+Identifier /things/20/post.html (things/ dir in content/)
+Identifier / The "root" or "home" page
+
+/poe: <%= Nanoc::Item.path('/quotes/poe' %>
+/poe/: <%= Nanoc::Item.path('/quotes/poe/' %>
+/rumi.html: <%= Nanoc::Item.path('/quotes/rumi.html' %>
+
+</pre>
+
+<hr>
+<%= Time.now %>
