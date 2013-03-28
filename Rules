@@ -27,19 +27,15 @@ compile '*' do
   end
 end
 
+################################################################
+
 route '/stylesheet/' do
   '/style.css'
 end
- 
-route '/chemical/*/' do
-  filter :erb
-  layout 'readable'
-end
 
-#route '/chemical/*' do
-#  filter :erb
-#  layout 'readable'
-#end
+route '/quotes/poe/*/' do
+  item.identifier
+end
 
 route '*' do
   if item.binary?
@@ -52,3 +48,9 @@ route '*' do
 end
 
 layout '*', :erb
+
+#route '/content/quotes/poe.html' do
+#  filter :erb
+#  layout 'readable'
+#end
+

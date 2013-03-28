@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'nanoc'
 gem 'rack'
+gem 'nanoc'
 gem 'mime-types'
-gem 'adsf'
 gem 'foreman'
+gem 'kramdown'
+gem 'adsf'
