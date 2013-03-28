@@ -1,0 +1,8 @@
+.DS_Store
+tags
+.rvmrc
+.rbenv-version
+*.swp
+*.tmp
+.bundle
+.rbenv-version
