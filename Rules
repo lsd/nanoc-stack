@@ -42,7 +42,7 @@ route '*' do
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
-    # Write item with identifier /foo/ to /foo/index.html
+    # Write item with identifier /quotes/poe to /quotes/poe/index.html
     item.identifier + 'index.html'
   end
 end
