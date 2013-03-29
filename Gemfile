@@ -1,8 +1,8 @@
-source 'http://rubygems.org'
-
+source 'https://rubygems.org'
 gem 'rack'
 gem 'nanoc'
 gem 'mime-types'
 gem 'foreman'
-gem 'kramdown'
 gem 'adsf'
+gem 'kramdown'
+gem 'thin'
