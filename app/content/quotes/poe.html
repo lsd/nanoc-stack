@@ -1,0 +1,26 @@
+---
+title: "POE."
+type: Author
+---
+
+<h1>Loading POE.HTML <%= @item[:filename] %></h1>
+
+<img arc="http://placehold.it/250x100" />
+
+<pre>
+title <%= @item[:title] %>
+type: <%= @item[:type] %>
+ext: <%= @item[:extension] %>
+path: <%= @item.path %>
+identifier: <%= @item.identifier %>
+reps: <%= @item.reps %>
+raw filename: <%= @item.raw_filename %>
+binary?: <%= @item.binary? %>
+
+id.chop + ext: <%= @item.identifier.chop + '.' + item[:extension] %>
+item.id + index.html: <%= @item.identifier + 'index.html' %>
+
+</pre>
+
+<hr>
+<%= Time.now %>
