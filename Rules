@@ -28,13 +28,16 @@ compile '*' do
 end
 
 ################################################################
-
 route '/stylesheet/' do
   '/style.css'
 end
 
-route '/quotes/poe/*/' do
-  item.identifier
+#route '/quotes/poe/*/' do
+#  item.identifier
+#end
+
+route '/wut' do
+  '/index.html'
 end
 
 route '*' do
