@@ -1,9 +1,9 @@
 ## ORIGINAL BELOW
-text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 
-                   'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 
+text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb',
+                   'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms',
                    'mustache', 'php', 'rb', 'sass', 'scss', 'txt', 'xhtml', 'xml' ]
 
-output_dir: 
+output_dir: output
 index_filenames: [ 'index.html' ]
 enable_output_diff: false
 
@@ -14,13 +14,13 @@ prune:
 data_sources:
   -
     type: filesystem_unified
-    items_root: /app/content/
-    layouts_root: /app/
+    items_root: /app/content
+    layouts_root: /app/layouts
     allow_periods_in_identifiers: false
 
 watcher:
   -
-   dirs_to_watch: [ 'commands', 'app', 'lib', 'layouts' ]
+   dirs_to_watch: [ 'content', 'layouts', 'lib' ]
    files_to_watch: [ 'nanoc.yaml', 'Rules' ]
    notify_on_compilation_success: true
    notify_on_compilation_failure: true
