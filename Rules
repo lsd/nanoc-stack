@@ -14,8 +14,9 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-compile '/stylesheet/' do
+compile '/app/assets/scss/' do
   # don’t filter or layout
+  filter :sass, :scss
 end
 
 compile '*' do
@@ -23,18 +24,14 @@ compile '*' do
     # don’t filter binary items
   else
     filter :erb
-    layout 'readable'
+    layout 'dummy'
   end
 end
 
 ################################################################
-route '/stylesheet/' do
-  '/style.css'
+route '/app/assets/scss/' do
+  '/app.css'
 end
-
-#route '/quotes/poe/*/' do
-#  item.identifier
-#end
 
 route '/wut' do
   '/index.html'
