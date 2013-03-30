@@ -1,7 +1,7 @@
 ## ORIGINAL BELOW
 text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'php', 'rb', 'sass', 'scss', 'txt', 'xhtml', 'xml' ]
 
-output_dir: rendered
+output_dir: output
 index_filenames: [ 'index.html' ]
 enable_output_diff: true
 
@@ -18,7 +18,7 @@ data_sources:
 
 watcher:
   -
-   dirs_to_watch: [ 'app','app/content','app/layouts' ]
+   dirs_to_watch: [ 'app/content','app/layouts' ]
    files_to_watch: [ 'nanoc.yaml', 'Rules' ]
    notify_on_compilation_success: true
    notify_on_compilation_failure: true
