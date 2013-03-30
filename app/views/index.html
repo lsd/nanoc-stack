@@ -1,0 +1,31 @@
+---
+title: "One of these mornings, ..."
+desc: "some description here"
+published: True
+type: "Quote"
+---
+
+<h1>loading <%= @item[:filename] %></h1>
+
+<p>Items consist of content and metadata.</p>
+
+<pre>
+Hierarchy of files in content/ reflect identifier names
+
+Identifier / the "root" or "home" page
+Identifier /things/20/post.html (things/ dir in content/)
+Identifier / The "root" or "home" page
+
+title <%= @item[:title] %>
+type: <%= @item[:type] %>
+ext: <%= @item[:extension] %>
+path: <%= @item.path %>
+identifier: <%= @item.identifier %>
+reps: <%= @item.reps %>
+raw filename: <%= @item.raw_filename %>
+binary?: <%= @item.binary? %>
+
+</pre>
+
+<hr>
+<%= Time.now %>

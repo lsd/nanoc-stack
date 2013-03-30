@@ -1,0 +1,20 @@
+---
+title: "About us."
+type: "Page"
+---
+
+<h1>loading <%= @item[:filename] %></h1>
+
+title <%= @item[:title] %>
+type: <%= @item[:type] %>
+ext: <%= @item[:extension] %>
+path: <%= @item.path %>
+identifier: <%= @item.identifier %>
+reps: <%= @item.reps %>
+raw filename: <%= @item.raw_filename %>
+binary?: <%= @item.binary? %>
+
+</pre>
+
+<hr>
+<%= Time.now %>
