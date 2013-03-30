@@ -14,10 +14,38 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+compile '/app/content/scss' do
+  # don’t filter or layout
+end
+
+compile '*' do
+  if item.binary?
+    # don’t filter binary items
+  else
+    filter :erb
+    layout 'default'
+  end
+end
+
+################################################################
+#route '/app/content/scss' do
+#  '/app.scss'
+#end
+
+#route '/quotes/poe/*/' do
+#  item.identifier
+#end
+
+route '/wut' do
+  '/index.html'
+end
+
 route '*' do
   if item.binary?
+    # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
+    # Write item with identifier /quotes/poe to /quotes/poe/index.html
     item.identifier + 'index.html'
   end
 end
@@ -28,4 +56,3 @@ layout '*', :erb
 #  filter :erb
 #  layout 'readable'
 #end
-
