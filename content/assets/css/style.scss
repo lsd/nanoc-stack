@@ -1,8 +1,10 @@
 // Sass' SCSS syntax
 
-$lightgray: #e1e1e1;
-$teal: #3bbfce;
 $ash: #666;
+$black: #111;
+$teal: #3bbfce;
+$magenta: #d29;
+$lightgray: #e1e1e1;
 
 * {
   margin: 0;
@@ -26,10 +28,16 @@ a {
 }
 
 #main {
+  color: #efefef;
+  background: $black;
   position: absolute;
-  top: 90px;
-  left: 280px;
-  width: 500px;
+  top: 95px;
+  left: 260px;
+  width: 680px;
+  padding: 15px;
+  border: 3px solid $magenta;
+  border-radius: 15px;
+  box-shadow: 5px 5px 14px 3px #888; 
   h1 {
     font-size: 40px;
     font-weight: normal;
@@ -58,29 +66,40 @@ a {
   top: 90px;
   left: 20px;
   width: 200px;
-  padding: 20px 20px 0 0;
+  padding: 5px 20px 0 0;
   border-right: 1px solid #ccc;
   text-align: right;
 
+  img {
+    border: 1px solid #666;
+    border-radius: 15px;
+  }
   p {
-    font-size: 75%;
+    $sz: 14px;
+    padding: 2px;
+    font-size: $sz;
+    line-height: $sz + 5;
     margin-bottom: 1em;
   }
 
   h2 {
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 14px;
     color: #333;
     letter-spacing: 1px;
-    line-height: 20px;
+    line-height: 15px;
+    padding: 5px;
   }
   ul {
     list-style-type: none;
-    margin: 20px 0;
+    margin: 5px 0 10px 0;
   }
   li {
     font-size: 14px;
     line-height: 20px;
+    &:after {
+      content: " \2190";
+    }
   }
 }
 
@@ -94,14 +113,21 @@ a {
     font-size: 2.5em;
     display: block;
     font-weight: bold;
+    span {
+      color: $magenta;
+    }
   }
 }
 
 #footer {
-  clear: both;
   position: absolute;
-  bottom: 0px;
-  left: 100px;
-  width: 100%;
+  right: 50px;
+  bottom: 5px;
+  width: 50%;
   margin: 30px 10px 30px 10px;
+  p {
+    color: #bbb;
+    display: block;
+    padding: 10px;
+  }
 }

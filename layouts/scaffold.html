@@ -1,45 +1,53 @@
+---
+author: http://github.com/lsd
+---
 <% started = Time.now.to_i %>
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Nanoc. <%= @item[:title] %></title>
+    <title><%= @item[:title] %></title>
     <link rel="stylesheet" href="/css/style.css">
     <meta name="generator" content="nanoc <%= Nanoc::VERSION %>"> 
+    <meta name="author" content="<%= @layout[:author] %>"> 
   </head>
   <body>
 
     <div id="header">
-      <h1>Elite Stack—ERb. Coffee. Haml. Sass. Shoulda.</h1>
+      <h1><span>the Stack?</span> Ruby. Coffee. Haml. Sass. Shoulda.</h1>
     </div>
 
     <div id="main">
       <%= yield %>
     </div>
+ 
+    <div id="footer">
+      <p><em>rendered in <%= (Time.now.to_f - started).to_s[0...5] %> ms</em></p>
+    </div> 
 
     <div id="sidebar">
+      <img src="/img/sabertooth.jpg" />
       <h2>Yet Another Stack?</h2>
       <p>Ruby, Coffeescript, Haml, Sass (SCSS), Kramdown, Typogruby, Shoulda &amp; Thin.</p>
 
-      <h2>Markup Examples</h2>
+      <h2>Haml, Mustache, ...</h2>
       <ul>
-        <li><a href="/markup/haml/">Haml</a></li>
-        <li><a href="/markup/kramdown/">kramdown</a></li>
-        <li><a href="/markup/"></a></li>
-      </ul>
- 
-      <h2>Markdown</h2>
-      <ul>
+        <li><a href="/samples/haml/">Haml : Zen.html</a></li>
+        <li><a href="/samples/mustache/">Mustache Template</a></li>
+        <li><a href="/samples/kramdown/">Markdown / kramdown</a></li>
+        <li><a href="/samples/code/">Syntax Highlighting</a></li>
+        <li><a href="/samples/coffee">Coffee &amp; Javascript</a></li>
       </ul> 
 
-      <h2>HTML</h2>
+      <h2>Just Experimental</h2>
       <ul>
-        <li><a href="/"></a></li>
+        <li><a href="#">Partials</a></li>
+        <li><a href="#">Layouts</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Representations</a></li>
+        <li><a href="/samples/php/">Ruby_> PHP_> Haml</a></li>
       </ul>
     </div>
 
-    <div id="footer">
-      <em>rendered in <%= Time.now.to_i - started %>ms</em>
-    </div>
   </body>
 </html>

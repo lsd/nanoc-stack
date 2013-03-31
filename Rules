@@ -2,33 +2,38 @@
 #!/usr/bin/env ruby
 # NOTE: If you don't use rbenv, delete line 1
 
-# COMPILING #######################
+# TODO passthrough instead?
+compile '/assets/img/*/' do
+end
+
+route '/assets/img/*/' do
+  "/img/#{item.identifier.split('/').last}.#{item[:extension]}"
+end
+
 
 compile '/assets/css/*/' do
   filter :sass, syntax: :scss
 end
 
+route '/assets/css/*/' do
+  '/css/style.css'
+end
+
+
 compile '*' do
   unless item.binary?
     filter :erb
 
-    f = case item[:extension]
-      when 'markdown', 'mkd', 'md' then :rdiscount
+    sift = case item[:extension]
+      when 'markdown', 'mkd', 'md' then :kramdown
       when 'coffee', 'js' then :coffee
       when 'haml' then :haml
     end
 
-    filter :erb
-    filter f unless f.nil?
-    filter :typogruby
+    filter sift unless sift.nil?
     layout 'scaffold'
+    filter :typogruby
   end
-end
-
-# ROUTING #########################
-
-route '/assets/css/*/' do
-  '/css/style.css'
 end
 
 route '*' do
@@ -39,6 +44,5 @@ route '*' do
   end
 end
 
-layout '*', :erb
 
-# item.id /quotes/po/ -> /quotes/poe/index.html
+layout '*', :erb
