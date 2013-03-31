@@ -3,15 +3,21 @@
 # WARNING: USES RBENV! If you don't use rbenv, delete first line
 
 compile '/assets/css/*/' do
-  # don’t filter or layout
-  #filter :scss
+  filter :sass, syntax: :scss
 end
 
 compile '*' do
-  if item.binary?
-    # don’t filter binary items
-  else
+  unless item.binary?
     filter :erb
+
+    case item[:extension]
+    when 'markdown'
+      filter :markdown
+    when 'coffee'
+      filter :coffee
+    when 'haml'
+      filter :coffee
+    end
     layout 'scaffold'
   end
 end
