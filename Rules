@@ -1,20 +1,8 @@
 #!rbenv exec ruby
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
+# WARNING: USES RBENV! If you don't use rbenv, delete first line
 
-# WARNIING: THIS USES RBENV! Delete the first line if you have troubles running this.
-#
-# A few helpful tips about the Rules file:
-# * The string given to #compile and #route are matching patterns for
-#   identifiers--not for paths. Therefore, you can’t match on extension.
-#
-# * Order of rules is important: For each item, only first matching rule is applied.
-#
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
-#   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
-
-compile '/stylesheet/' do
+compile '/assets/css/style' do
   # don’t filter or layout
 end
 
@@ -29,12 +17,8 @@ end
 
 ################################################################
 
-route '/stylesheet/' do
+route '/assets/css/style' do
   '/style.css'
-end
-
-route '/quotes/poe/*/' do
-  item.identifier
 end
 
 route '*' do
@@ -54,3 +38,14 @@ layout '*', :erb
 #  layout 'readable'
 #end
 
+# A few helpful tips about the Rules file:
+# * The string given to #compile and #route are matching patterns for
+#   identifiers--not for paths. Therefore, you can’t match on extension.
+#
+# * Order of rules is important: For each item, only first matching rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+ 
