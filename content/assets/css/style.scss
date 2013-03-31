@@ -1,4 +1,8 @@
-$blue: #3bbfce;
+// Sass' SCSS syntax
+
+$lightgray: #e1e1e1;
+$teal: #3bbfce;
+$ash: #666;
 
 * {
   margin: 0;
@@ -7,98 +11,72 @@ $blue: #3bbfce;
 }
 
 body {
-  background: $blue;
+  background: $lightgray;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:link,
-a:visited {
-  color: #f30;
-}
-
-a:hover {
-  color: #f90;
+a { 
+  text-decoration: none; 
+  &:link, &:visited { 
+    color: $ash; 
+    &:hover {
+      color: darken($ash, 5%);
+      text-decoration: underline;
+    }
+  }
 }
 
 #main {
   position: absolute;
-
   top: 90px;
   left: 280px;
-
   width: 500px;
-}
-
-#main h1 {
-  font-size: 40px;
-  font-weight: normal;
-
-  line-height: 40px;
-
-  letter-spacing: -1px;
-}
-
-#main p {
-  margin: 20px 0;
-
-  font-size: 15px;
-
-  line-height: 20px;
-}
-
-#main ul, #main ol {
-  margin: 20px;
-}
-
-#main li {
-  font-size: 15px;
-
-  line-height: 20px;
-}
-
-#main ul li {
-  list-style-type: square;
+  h1 {
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    letter-spacing: -1px;
+  }
+  p {
+    margin: 20px 0;
+    font-size: 15px;
+    line-height: 20px;
+  }
+  ul, ol {
+    margin: 20px;
+  }
+  li {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  ul li {
+    list-style-type: square;
+  }
 }
 
 #sidebar {
   position: absolute;
-
   top: 90px;
   left: 20px;
   width: 200px;
-
   padding: 20px 20px 0 0;
-
   border-right: 1px solid #ccc;
-
   text-align: right;
-}
 
-#sidebar h2 {
-  text-transform: uppercase;
-
-  font-size: 13px;
-
-  color: #333;
-
-  letter-spacing: 1px;
-
-  line-height: 20px;
-}
-
-#sidebar ul {
-  list-style-type: none;
-
-  margin: 20px 0;
-}
-
-#sidebar li {
-  font-size: 14px;
-
-  line-height: 20px;
+  h2 {
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #333;
+    letter-spacing: 1px;
+    line-height: 20px;
+  }
+  ul {
+    list-style-type: none;
+    margin: 20px 0;
+  }
+  li {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 #header {
@@ -107,19 +85,18 @@ a:hover {
   margin: 10px;
   padding: 5px;
   clear: both;
-}
-
-#header h1 {
-  font-size: 2.5em;
-  display: block;
-  font-weight: bold;
+  h1 {
+    font-size: 2.5em;
+    display: block;
+    font-weight: bold;
+  }
 }
 
 #footer {
+  clear: both;
   position: absolute;
   bottom: 0px;
   left: 100px;
-  clear: both;
   width: 100%;
   margin: 30px 10px 30px 10px;
 }

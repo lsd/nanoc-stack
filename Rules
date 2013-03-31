@@ -1,6 +1,8 @@
 #!rbenv exec ruby
 #!/usr/bin/env ruby
-# WARNING: USES RBENV! If you don't use rbenv, delete first line
+# NOTE: If you don't use rbenv, delete line 1
+
+# COMPILING #######################
 
 compile '/assets/css/*/' do
   filter :sass, syntax: :scss
@@ -10,19 +12,20 @@ compile '*' do
   unless item.binary?
     filter :erb
 
-    case item[:extension]
-    when 'markdown'
-      filter :markdown
-    when 'coffee'
-      filter :coffee
-    when 'haml'
-      filter :coffee
+    f = case item[:extension]
+      when 'markdown', 'mkd', 'md' then :rdiscount
+      when 'coffee', 'js' then :coffee
+      when 'haml' then :haml
     end
+
+    filter :erb
+    filter f unless f.nil?
+    filter :typogruby
     layout 'scaffold'
   end
 end
 
-################################################################
+# ROUTING #########################
 
 route '/assets/css/*/' do
   '/css/style.css'
@@ -30,32 +33,12 @@ end
 
 route '*' do
   if item.binary?
-    # Write item identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
-    # Write item id /quotes/poe to /quotes/poe/index.html
     item.identifier + 'index.html'
   end
 end
 
 layout '*', :erb
 
-
-
-#route '/content/quotes/poe.html' do
-#  filter :erb
-#  layout 'readable'
-#end
-
-# A few helpful tips about the Rules file:
-# * The string given to #compile and #route are matching patterns for
-#   identifiers--not for paths. Therefore, you can’t match on extension.
-#
-# * Order of rules is important: For each item, only first matching rule
-#   is applied.
-#
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
-#   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
-
+# item.id /quotes/po/ -> /quotes/poe/index.html
