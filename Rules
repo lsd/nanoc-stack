@@ -19,7 +19,7 @@ end
 ################################################################
 
 route '/assets/css/*/' do
-  '/style.css'
+  '/css/style.css'
 end
 
 route '*' do
