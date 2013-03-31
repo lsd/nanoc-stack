@@ -2,8 +2,9 @@
 #!/usr/bin/env ruby
 # WARNING: USES RBENV! If you don't use rbenv, delete first line
 
-compile '/assets/css/style' do
+compile '/assets/css/*/' do
   # don’t filter or layout
+  #filter :scss
 end
 
 compile '*' do
@@ -17,21 +18,23 @@ end
 
 ################################################################
 
-route '/assets/css/style' do
+route '/assets/css/*/' do
   '/style.css'
 end
 
 route '*' do
   if item.binary?
-    # Write item with identifier /foo/ to /foo.ext
+    # Write item identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
-    # Write item with identifier /quotes/poe to /quotes/poe/index.html
+    # Write item id /quotes/poe to /quotes/poe/index.html
     item.identifier + 'index.html'
   end
 end
 
 layout '*', :erb
+
+
 
 #route '/content/quotes/poe.html' do
 #  filter :erb
@@ -42,10 +45,11 @@ layout '*', :erb
 # * The string given to #compile and #route are matching patterns for
 #   identifiers--not for paths. Therefore, you can’t match on extension.
 #
-# * Order of rules is important: For each item, only first matching rule is applied.
+# * Order of rules is important: For each item, only first matching rule
+#   is applied.
 #
 # * Item identifiers start and end with a slash (e.g. “/about/” for the file
 #   “content/about.html”). To select all children, grandchildren, … of an
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
- 
+
