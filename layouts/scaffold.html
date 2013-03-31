@@ -1,0 +1,36 @@
+<% started = Time.now.to_i %>
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Nanoc. <%= @item[:title] %></title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>"> 
+  </head>
+  <body>
+
+    <div id="header">
+      <h1>Elite Stack—ERb. Coffee. Haml. Sass. Shoulda.</h1>
+    </div>
+
+    <div id="main">
+      <%= yield %>
+    </div>
+
+    <div id="sidebar">
+      <ul>
+        <li>title <%= @item[:title] %></li>
+        <li>filename <%= @item[:filename] %></li>
+        <li>extension <%= @item[:extension] %></li>
+        <li>meta_filename <%= @item[:meta_filename] %></li>
+        <li>content_filename <%= @item[:content_filename] %></li>
+        <li><a href="http://nanoc.ws/docs/">Documentation</a></li>
+        <li><a href="http://github.com/nanoc/nanoc/wiki/">Wiki</a></li>
+      </ul>
+    </div>
+
+    <div id="footer">
+      <em>rendered in <%= Time.now.to_i - started %>ms</em>
+    </div>
+  </body>
+</html>

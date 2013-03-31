@@ -25,7 +25,7 @@ a:hover {
 #main {
   position: absolute;
 
-  top: 40px;
+  top: 90px;
   left: 280px;
 
   width: 500px;
@@ -65,7 +65,7 @@ a:hover {
 #sidebar {
   position: absolute;
 
-  top: 40px;
+  top: 90px;
   left: 20px;
   width: 200px;
 
@@ -98,4 +98,27 @@ a:hover {
   font-size: 14px;
 
   line-height: 20px;
+}
+
+#header {
+  width: 100%;
+  display: block;
+  margin: 10px;
+  padding: 5px;
+  clear: both;
+}
+
+#header h1 {
+  font-size: 2.5em;
+  display: block;
+  font-weight: bold;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0px;
+  left: 100px;
+  clear: both;
+  width: 100%;
+  margin: 30px 10px 30px 10px;
 }
